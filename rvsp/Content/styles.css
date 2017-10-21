@@ -1,0 +1,18 @@
+﻿
+.field-validation-valid{
+    display:none;
+}
+.input-validation-error{
+    border: 1px solid #f00;
+    background-color:#fee;
+}
+.validatnion-summary-errors{
+    font-weight:bold;
+    color:#f00;
+}
+.validation-summary-valid{
+    display:none;
+}
+#demo p{
+    font-size:50px;
+}

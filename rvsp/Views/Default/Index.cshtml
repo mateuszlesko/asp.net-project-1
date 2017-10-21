@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="=stylesheet" />
+    <title>Index</title>
+    <style>
+        .btn a {color:white;text-decoration:none;}
+        body{background-color:papayawhip;}
+    </style>
+    <script type="text/javascript" src="~/Scripts/JavaScript-BirthDateCountingDown.js"></script>
+</head>
+<body>
+    <div class="text-center"> 
+        
+        <p>Dzis jest @ViewBag.Day</p> 
+        <h1>Zaproszenie na przyjecie</h1>
+        <h2>Serdecznie zapraszamy was na przyjęcie 19/03/18</h2>
+        <h3>Do przyjecia zostało: </h3>
+        <h3 id="demo"></h3>
+        <div class="btn btn-success">
+        @Html.ActionLink("Wyslij RVSP","RvspForm")
+           </div>
+    </div>
+</body>
+</html>

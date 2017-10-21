@@ -1,0 +1,47 @@
+﻿@model rvsp.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <title>Thanks</title>
+</head>
+<body>
+    @{ 
+        try
+        {
+            WebMail.SmtpServer = "stmp.przyklad.pl";
+            WebMail.SmtpPort = 587;//port odpowiadajacy za usuge wysylania maila
+            WebMail.EnableSsl = true;//umozliwienie korzystania z protokolu ssl
+            WebMail.UserName = "nazwaUzytkownikaSMTP";
+            WebMail.Password = "hasloUzytkownikaSMTP";
+            WebMail.From = "rvsp@przyklad.pl";//mail adresata
+            WebMail.Send("mateusz.lesko@op.pl", "Test RSP", Model.Surname, Model.Surname + ((Model.WillAttend ?? true) ? " " : "przyjdzie"));
+        }
+        catch(Exception)
+        {
+                @:<b>Nie mozna wyslac wiadomosci</b>
+            }
+        }
+    <div class="text-center"> 
+        <h1>Dziekujemy @Model.Name @Model.Surname</h1>
+        <div class="lead">
+            @if (Model.WillAttend == true)
+        {
+                @:Cieszymy się, że bedziesz z Nami!
+        }
+            else
+            {
+                @:Przykro Nam, że nie zjawisz się.
+        }
+        </div>
+    </div>
+</body>
+</html>
